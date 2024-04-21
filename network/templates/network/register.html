@@ -1,4 +1,5 @@
 {% extends "network/layout.html" %}
+{% load static %}
 
 {% block body %}
 
@@ -22,9 +23,9 @@
         <div class="form-group">
             <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
         </div>
-        <input class="btn btn-primary" type="submit" value="Register">
+        <input class="btn btn-info" type="submit" value="Register">
     </form>
 
-    Already have an account? <a href="{% url 'login' %}">Log In here.</a>
+    <div style="color: #17a2b8; margin-top: 6px;">Already have an account? <a href="{% url 'login' %}" style="color: white;">Log In here.</a></div>
 
 {% endblock %}

@@ -1,4 +1,5 @@
 {% extends "network/layout.html" %}
+{% load static %}
 
 {% block body %}
 <div class="container">
@@ -9,8 +10,12 @@
                     <h2 style="color: #17a2b8">Welcome to Flicker!</h2>
                 </div>
                 <div class="card-body">
-                    <h4 class="card-title" style="color: #17a2b8">Hello, {{ user.username }}!</h4>
-                    <p class="card-text">We're glad to have you here.</p>
+                    {% if user.is_authenticated %}
+                        <h4 class="card-title" style="color: #17a2b8">Hello, {{ user.username }}!</h4>
+                        <p class="card-text">We're glad to have you here.</p>
+                    {% else %}
+                        <p class="card-text">Please log in to see personalized content.</p>
+                    {% endif %}
                 </div>
             </div>
         </div>

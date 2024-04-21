@@ -72,7 +72,7 @@ def new_post(request):
 @login_required
 def posts(request):
     posts = Post.objects.all()
-    paginator = Paginator(posts, 10)
+    paginator = Paginator(posts, 3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'network/posts.html', {'page_obj': page_obj})
