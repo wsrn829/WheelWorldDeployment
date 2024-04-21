@@ -1,5 +1,19 @@
 {% extends "network/layout.html" %}
 
 {% block body %}
-    <h2>Welcome to the Network!</h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h2 style="color: #17a2b8">Welcome to Flicker!</h2>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title" style="color: #17a2b8">Hello, {{ user.username }}!</h4>
+                    <p class="card-text">We're glad to have you here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
