@@ -69,7 +69,6 @@ def new_post(request):
     return render(request, 'network/new_post.html')
 
 #All Posts
-@login_required
 def posts(request):
     posts = Post.objects.all()
     paginator = Paginator(posts, 3)

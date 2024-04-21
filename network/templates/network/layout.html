@@ -14,13 +14,16 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
+
                     {% if user.is_authenticated %}
                     <li class="nav-item mr-2">
                         <a class="nav-link font-weight-bold" href="{% url 'profile' user_id=user.id %}" style="color: #17a2b8;"><strong>{{ user.username }}</strong></a>
                     </li>
+                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link font-weight-bold" href="{% url 'posts' %}" style="color: #17a2b8;">All Posts</a>
                     </li>
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link font-weight-bold" href="{% url 'following' %}" style="color: #17a2b8;">Following</a>
                     </li>
