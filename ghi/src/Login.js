@@ -27,7 +27,7 @@ function Login() {
 
       if (response.ok) {
         // If login is successful, redirect to home page
-        handleLogin();
+        handleLogin(username);
         navigate('/');
       } else {
         throw new Error('Login failed');

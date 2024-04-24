@@ -1,102 +1,92 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import AuthContext from './AuthContext';
-import { NavLink, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './Navbar.css';
+import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 
-function Navbar() {
-  const {isLoggedIn, setIsLoggedIn, handleLogin, handleLogout} = useContext(AuthContext);
+function NavbarComponent() {
+  const {isLoggedIn, username, handleLogout} = useContext(AuthContext);
+  const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString('en-US', { hour12: false }));
+  const navigate = useNavigate();
 
+  const logOutAndRedirect = () => {
+    handleLogout();
+    navigate('/');
+  }
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date().toLocaleTimeString('en-US', { hour12: false }));
+    }, 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark">
-      <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/">WHEELWORLD</NavLink>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-
-              <li className="nav-item">
-                <NavLink className="nav-link active" to="/">HOME</NavLink>
-              </li>
-
-
-          <li className="nav-item dropdown">
-            <NavLink className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              INVENTORY
-            </NavLink>
-            <ul className="dropdown-menu">
-              <li><NavLink className="dropdown-item" to="/manufacturers/create">Add Manufacturer</NavLink></li>
-              <li><NavLink className="dropdown-item" to="/manufacturers">Manufacturers</NavLink></li>
-              <li><hr className="dropdown-divider" /></li>
-              <li><NavLink className="dropdown-item" to="/models/create">Add Car Model</NavLink></li>
-              <li><NavLink className="dropdown-item" to="/models">Car Models</NavLink></li>
-              <li><hr className="dropdown-divider" /></li>
-              <li><NavLink className="dropdown-item" to="/automobiles/create">Add Automobile</NavLink></li>
-              <li><NavLink className="dropdown-item" to="/automobiles">Automobiles</NavLink></li>
-            </ul>
-          </li>
-
-            <li className="nav-item dropdown">
-              <NavLink className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                SERVICES
-              </NavLink>
-              <ul className="dropdown-menu">
-                <li><NavLink className="dropdown-item" to="/technicians/create">Add Technician</NavLink></li>
-                <li><NavLink className="dropdown-item" to="/technicians">Technicians</NavLink></li>
-                <li><hr className="dropdown-divider" /></li>
-                <li><NavLink className="dropdown-item" to="/appointments/create">Add Service Appointment</NavLink></li>
-                <li><NavLink className="dropdown-item" to="/appointments">Service Appointments</NavLink></li>
-                <li><NavLink className="dropdown-item" to="/appointments/history">Service History</NavLink></li>
-              </ul>
-            </li>
-
-          <li className="nav-item dropdown">
-            <NavLink className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              SALES
-            </NavLink>
-            <ul className="dropdown-menu">
-              <li><NavLink className="dropdown-item" to="/salespeople/create">Add Salesperson</NavLink></li>
-              <li><NavLink className="dropdown-item" to="/salespeople">Salespeople</NavLink></li>
-              <li><hr className="dropdown-divider" /></li>
-              <li><NavLink className="dropdown-item" to="/customers/create">Add Customer</NavLink></li>
-              <li><NavLink className="dropdown-item" to="/customers">Customers</NavLink></li>
-              <li><hr className="dropdown-divider" /></li>
-              <li><NavLink className="dropdown-item" to="/sales/create">Add Sale</NavLink></li>
-              <li><NavLink className="dropdown-item" to="/sales/">Sales</NavLink></li>
-              <li><NavLink className="dropdown-item" to="/sales/history">Salesperson History</NavLink></li>
-            </ul>
-          </li>
-          </ul>
-          <ul className="navbar-nav ml-auto">
+      <Navbar collapseOnSelect expand="lg" variant="light" style={{ backgroundColor: '#008B8B', color: 'white' }}>
+      <Container fluid>
+        <Navbar.Brand as={Link} to="/">WHEELWORLD</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/">HOME</Nav.Link>
+            <NavDropdown title="INVENTORY" id="collasible-nav-dropdown">
+              <NavDropdown.Item as={Link} to="/manufacturers/create">Add Manufacturer</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/manufacturers">Manufacturers</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item as={Link} to="/models/create">Add Car Model</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/models">Car Models</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item as={Link} to="/automobiles/create">Add Automobile</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/automobiles">Automobiles</NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown title="SERVICES" id="collasible-nav-dropdown">
+              <NavDropdown.Item as={Link} to="/technicians/create">Add Technician</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/technicians">Technicians</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item as={Link} to="/appointments/create">Add Service Appointment</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/appointments">Service Appointments</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/appointments/history">Service History</NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown title="SALES" id="collasible-nav-dropdown">
+              <NavDropdown.Item as={Link} to="/salespeople/create">Add Salesperson</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/salespeople">Salespeople</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item as={Link} to="/customers/create">Add Customer</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/customers">Customers</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item as={Link} to="/sales/create">Add Sale</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/sales/">Sales</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/sales/history">Salesperson History</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          <Navbar.Text style={{
+              color: 'yellow',
+              margin: 'auto',
+              fontSize: '25px',
+              backgroundColor: 'darkblue',
+              padding: '10px',
+              borderRadius: '30px'
+            }}>{currentTime}</Navbar.Text>
+          <Nav>
             {!isLoggedIn ? (
               <>
-                <li className="nav-item">
-                  <Link to="/login" className="nav-link" style={{ color: 'white' }}>LOGIN</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/register" className="nav-link" style={{ color: 'white' }}>REGISTER</Link>
-                </li>
+                <Nav.Link as={Link} to="/login">LOGIN</Nav.Link>
+                <Nav.Link as={Link} to="/register">REGISTER</Nav.Link>
               </>
             ) : (
-              <li className="nav-item">
-                <Link to="/logout" className="nav-link" style={{ color: 'white' }} onClick={handleLogout}>LOGOUT</Link>
-              </li>
+              <>
+                <Navbar.Text style={{ color: 'white', marginRight: '10px' }}>Hello, {username.toUpperCase()}!</Navbar.Text>
+                <Nav.Link onClick={logOutAndRedirect}>LOGOUT</Nav.Link>
+              </>
             )}
-          </ul>
-        </div>
-      </div>
-    </nav>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
-export default Navbar;
+export default NavbarComponent;

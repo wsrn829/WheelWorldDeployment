@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
 import Navbar from "./Navbar";
 import Login from "./Login";
-import Logout from "./Logout";
 import Register from "./Register";
 import SalespeopleList from "./SalespeopleList";
 import SalespersonForm from "./SalespersonForm";
@@ -27,24 +26,26 @@ import AutomobileForm from "./AutomobileForm";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState();
 
-  const handleLogin = () => {
+  const handleLogin = (username) => {
     setIsLoggedIn(true);
+    setUsername(username);
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    setUsername('');
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, handleLogin, handleLogout }}>
+    <AuthContext.Provider value={{ isLoggedIn, username, setIsLoggedIn, handleLogin, handleLogout }}>
     <BrowserRouter>
       <Navbar />
       <div className="container">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/logout" element={<Logout />} />
           <Route path="/register" element={<Register />} />
           <Route path="/automobiles" element={<AutomobilesList />} />
           <Route path="/automobiles/create" element={<AutomobileForm />} />

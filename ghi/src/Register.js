@@ -35,7 +35,7 @@ function Register({ onRegister }) {
 
       if (response.ok) {
         // If registration is successful, redirect to login page
-        handleLogin();
+        handleLogin(username);
         navigate('/login');
       } else {
         throw new Error('Registration failed');

@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import "./HomePage.css";
 
-const HomePage = () => {
+function MainPage() {
   return (
-    <div>HomePage</div>
+    <div className="content">
+      <div className="text-content">
+        <h2 className="display-8">
+        The ultimate solution for automotive dealership management!
+        </h2>
+      </div>
+      <div className="image-content">
+        <img src="main.png" alt="car" className="responsive-image" />
+      </div>
+  </div>
   )
-}
+};
 
-export default HomePage
+export default MainPage;
