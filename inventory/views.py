@@ -8,15 +8,24 @@ from .models import Automobile, Manufacturer, VehicleModel
 def api_automobiles(request):
     if request.method == "GET":
         autos = [model_to_dict(auto) for auto in Automobile.objects.all()]
+        for auto in autos:
+            model = VehicleModel.objects.get(id=auto['model'])
+            manufacturer = Manufacturer.objects.get(id=model.manufacturer_id)
+            auto['model_name'] = model.name
+            auto['manufacturer_name'] = manufacturer.name
         return JsonResponse({"autos": autos})
     else:
         try:
             content = json.loads(request.body)
             model_id = content["model_id"]
             model = VehicleModel.objects.get(pk=model_id)
+            manufacturer = model.manufacturer
             content["model"] = model
             auto = Automobile.objects.create(**content)
-            return JsonResponse(model_to_dict(auto), safe=False)
+            auto_data = model_to_dict(auto)
+            auto_data["model_name"] = model.name
+            auto_data["manufacturer_name"] = manufacturer.name
+            return JsonResponse(auto_data, safe=False)
         except Exception as e:
             return JsonResponse({"message": str(e)}, status=400)
 
@@ -79,6 +88,9 @@ def api_manufacturer(request, pk):
 def api_vehicle_models(request):
     if request.method == "GET":
         models = [model_to_dict(model) for model in VehicleModel.objects.all()]
+        for model in models:
+            manufacturer = Manufacturer.objects.get(id=model['manufacturer'])
+            model['manufacturer_name'] = manufacturer.name
         return JsonResponse({"models": models})
     else:
         try:
