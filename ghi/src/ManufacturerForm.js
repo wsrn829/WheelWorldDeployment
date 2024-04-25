@@ -36,7 +36,7 @@ export default function ManufacturerForm() {
         <div className="row">
           <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4" style={{ backgroundColor: '#f2f2f2' }}>
-              <h1>Create a manufacturer</h1>
+              <h1>Add a manufacturer</h1>
               <form onSubmit={handleSubmit} id="create-salesperson-form">
                 <div className="form-floating mb-3">
                   <input
