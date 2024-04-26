@@ -48,7 +48,7 @@ function Register({ onRegister }) {
   return (
 <div className="container">
   <div className="row justify-content-center">
-    <div className="col-6">
+    <div className="col-12 col-md-6">
       <div className="shadow p-4 mt-4" style={{ backgroundColor: '#f2f2f2' }}>
         <h2 className="text-center">Register</h2>
         <form onSubmit={handleRegisterClick} id="register-form">

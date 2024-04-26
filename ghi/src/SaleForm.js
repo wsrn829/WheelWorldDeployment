@@ -108,23 +108,23 @@ function SalesForm() {
   return (
     <div className="container">
     <div className="row justify-content-center">
-      <div className="col-6">
+      <div className="col-12 col-md-6">
         <div className="shadow p-4 mt-4" style={{ backgroundColor: '#f2f2f2' }}>
           <h1 className="text-center">Record a new sale</h1>
           <form className={formClasses} onSubmit={handleSubmit} id="create-sale-form">
-          <div className="mb-3">
-            Automobile VIN
-            <select onChange={handleChange} value={state.automobile} required id="automobile" name="automobile" className="form-select">
-              <option value="">Choose an automobile VIN...</option>
-              {state.automobiles?.filter(automobile => !automobile.sold).map(automobile => {
-                return (
-                  <option key={automobile.id} value={automobile.vin}>
-                    {automobile.vin}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
+            <div className="mb-3">
+              Automobile VIN
+              <select onChange={handleChange} value={state.automobile} required id="automobile" name="automobile" className="form-select">
+                <option value="">Choose an automobile VIN...</option>
+                {state.automobiles?.filter(automobile => !automobile.sold).map(automobile => {
+                  return (
+                    <option key={automobile.id} value={automobile.vin}>
+                      {automobile.vin}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
 
             <div className="mb-3">
               Salesperson
@@ -161,14 +161,14 @@ function SalesForm() {
             </div>
 
             <button className="btn btn-primary">Create</button>
-            </form>
-            <div className={messageClasses} id="success-message">
-              Congratulations!
-            </div>
+          </form>
+          <div className={messageClasses} id="success-message">
+            Congratulations!
           </div>
-       </div>
+        </div>
       </div>
     </div>
+  </div>
   );
   }
 

@@ -53,29 +53,30 @@ export default function SalesHistory() {
 
   return (
     <div>
-      <h1>Salesperson History</h1>
-      <div className="form-floating mb-3">
-        <select
-          value={salesPerson}
-          onChange={handleSalesPerson}
-          placeholder="salesPerson"
-          required
-          type="text"
-          name="salesPerson"
-          id="salesPerson"
-          className="form-select"
-        >
-          <option value="">Choose a salesperson</option>
-          {salesPeople.map((salesperson) => {
-            return (
-              <option key={salesperson.id} value={salesperson.first_name}>
-                {salesperson.first_name}
-              </option>
-            );
-          })}
-        </select>
-      </div>
+    <h1>Salesperson History</h1>
+    <div className="form-floating mb-3">
+      <select
+        value={salesPerson}
+        onChange={handleSalesPerson}
+        placeholder="salesPerson"
+        required
+        type="text"
+        name="salesPerson"
+        id="salesPerson"
+        className="form-select"
+      >
+        <option value="">Choose a salesperson</option>
+        {salesPeople.map((salesperson) => {
+          return (
+            <option key={salesperson.id} value={salesperson.first_name}>
+              {salesperson.first_name}
+            </option>
+          );
+        })}
+      </select>
+    </div>
 
+    <div className="table-responsive">
       <table className="table table-striped">
         <thead>
           <tr>
@@ -99,5 +100,6 @@ export default function SalesHistory() {
         </tbody>
       </table>
     </div>
+  </div>
   );
 }

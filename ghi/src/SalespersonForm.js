@@ -68,7 +68,7 @@ function SalespersonForm() {
   return (
     <div className="container">
     <div className="row justify-content-center">
-      <div className="col-6">
+      <div className="col-12 col-md-6">
         <div className="shadow p-4 mt-4" style={{ backgroundColor: '#f2f2f2' }}>
           <h1 className="text-center">Add a Salesperson</h1>
           <form onSubmit={handleSubmit} id="create-salesperson-form">

@@ -31,8 +31,9 @@ export const TechnicianList = () => {
   }
 
   return (
-    <>
-      <h1>Technicians</h1>
+  <>
+    <h1>Technicians</h1>
+    <div className="table-responsive">
       <table className="table table-striped table-hover">
         <thead>
           <tr>
@@ -51,7 +52,8 @@ export const TechnicianList = () => {
           ))}
         </tbody>
       </table>
-    </>
+    </div>
+  </>
   );
 };
 

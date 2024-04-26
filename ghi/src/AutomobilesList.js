@@ -34,10 +34,11 @@ export const AutomobileList = () => {
 
   return (
     <>
-      <h1>Automobiles</h1>
-      <button onClick={toggleShowSold}>
-        {showSold ? "Hide Sold Automobiles" : "Show All Automobiles"}
-      </button>
+    <h1>Automobiles</h1>
+    <button onClick={toggleShowSold}>
+      {showSold ? "Hide Sold Automobiles" : "Show All Automobiles"}
+    </button>
+    <div className="table-responsive">
       <table className="table table-striped">
         <thead>
           <tr>
@@ -62,7 +63,8 @@ export const AutomobileList = () => {
           ))}
         </tbody>
       </table>
-    </>
+    </div>
+  </>
   );
 };
 

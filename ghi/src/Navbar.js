@@ -62,7 +62,7 @@ function NavbarComponent() {
               <NavDropdown.Item as={Link} to="/sales/history">Salesperson History</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Navbar.Text style={{
+          <Navbar.Text className="navbar-text" style={{
               color: 'yellow',
               margin: 'auto',
               fontSize: '25px',

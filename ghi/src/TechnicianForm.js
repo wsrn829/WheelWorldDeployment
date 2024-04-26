@@ -60,8 +60,8 @@ export const TechnicianForm = () => {
 
   return (
     <div className="my-5 container">
-    <div className="row">
-      <div className="offset-3 col-6">
+    <div className="row justify-content-center">
+      <div className="col-12 col-md-6 offset-md-3">
         <div className="shadow p-4 mt-4" style={{ backgroundColor: '#f2f2f2' }}>
           <h1>Add a technician</h1>
           <form onSubmit={handleSubmit} id="create-technician-form">

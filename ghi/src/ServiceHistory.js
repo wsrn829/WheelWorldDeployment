@@ -33,16 +33,17 @@ export const ServiceHistory = () => {
   }
 
   return (
-    <>
-      <div>
-        <h1>Service History</h1>
-        <input
-          type="text"
-          value={vin}
-          placeholder="Search by VIN"
-          onChange={e => setVin(e.target.value)}
-        />
-      </div>
+  <>
+    <div>
+      <h1>Service History</h1>
+      <input
+        type="text"
+        value={vin}
+        placeholder="Search by VIN"
+        onChange={e => setVin(e.target.value)}
+      />
+    </div>
+    <div className="table-responsive">
       <table className="table table-striped">
         <thead>
           <tr>
@@ -67,7 +68,8 @@ export const ServiceHistory = () => {
           ))}
         </tbody>
       </table>
-    </>
+    </div>
+  </>
   );
 };
 

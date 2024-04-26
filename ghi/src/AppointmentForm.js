@@ -97,12 +97,12 @@ export const AppointmentForm = () => {
   }
 
   return (
-    <>
-  <div className="row">
-  <div className="offset-3 col-6">
-    <div className="shadow p-4 mt-4">
-      <h1>Create an appointment</h1>
-      <form onSubmit={handleSubmit} id="create-appointment-form">
+    <div className="container">
+    <div className="row justify-content-center">
+      <div className="col-12 col-md-6">
+        <div className="shadow p-4 mt-4" style={{ backgroundColor: '#f2f2f2' }}>
+          <h2 className="text-center">Create an appointment</h2>
+        <form onSubmit={handleSubmit} id="create-appointment-form">
         <div className="form-floating mb-3">
           <input
           onChange={handleChange}
@@ -154,11 +154,11 @@ export const AppointmentForm = () => {
           <label htmlFor="reason">Reason</label>
         </div>
         <button className="btn btn-primary">Create</button>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 </div>
-</>
 )
 };
 

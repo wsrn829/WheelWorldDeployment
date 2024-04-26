@@ -65,11 +65,12 @@ export const AppointmentList = () => {
 
   return (
     <>
-      <h1>Appointments</h1>
-      <p>
-        NOTE: If your appointment is canceled or finished, it will NOT show up
-        on this list
-      </p>
+    <h1>Appointments</h1>
+    <p>
+      NOTE: If your appointment is canceled or finished, it will NOT show up
+      on this list
+    </p>
+    <div className="table-responsive">
       <table className="table table-striped">
         <thead>
           <tr>
@@ -109,7 +110,8 @@ export const AppointmentList = () => {
           })}
         </tbody>
       </table>
-    </>
+    </div>
+  </>
   );
 };
 
