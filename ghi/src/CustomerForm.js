@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react';
+import AuthContext from './AuthContext';
 
 export default function CustomersForm() {
+    const { isLoggedIn } = useContext(AuthContext);
+
     const [customer, setCustomer] = useState({
       first_name: '',
       last_name: '',
@@ -40,6 +43,10 @@ export default function CustomersForm() {
             });
         }
     }
+
+    if (!isLoggedIn) {
+        return <h3 style={{ textAlign: 'center', marginTop: '50px', color: 'white' }}>*You must be logged in to view this form.*</h3>;
+      }
 
     return (
       <div className="container">

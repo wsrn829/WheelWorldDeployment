@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import AuthContext from './AuthContext';
 
 export default function SalesHistory() {
   const [sales, setSales] = useState([]);
   const [salesPerson, setSalesPerson] = useState("");
   const [salesPeople, setSalesPeople] = useState([]);
+  const { isLoggedIn } = useContext(AuthContext);
 
   const handleSalesPerson = (event) => {
     const value = event.target.value;
@@ -44,6 +46,10 @@ export default function SalesHistory() {
     LoadSales();
     getSalesPeople();
   }, []);
+
+  if (!isLoggedIn) {
+    return <h3 style={{ textAlign: 'center', marginTop: '50px', color: 'white' }}>*You must be logged in to view this form.*</h3>;
+  }
 
   return (
     <div>

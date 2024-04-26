@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import AuthContext from './AuthContext';
 
 export const ServiceHistory = () => {
   const [vin, setVin] = useState("");
   const [appointments, setAppointments] = useState([]);
   const [filteredAppointments, setFilteredAppointments] = useState([]);
+  const { isLoggedIn } = useContext(AuthContext);
 
   const baseUrl = 'http://localhost:8000/api/';
 
@@ -26,6 +28,10 @@ export const ServiceHistory = () => {
     filterAppointments();
   }, [vin, appointments]);
 
+  if (!isLoggedIn) {
+    return <h3 style={{ textAlign: 'center', marginTop: '50px', color: 'white' }}>*You must be logged in to view this form.*</h3>;
+  }
+
   return (
     <>
       <div>
@@ -41,7 +47,6 @@ export const ServiceHistory = () => {
         <thead>
           <tr>
             <th>VIN</th>
-            <th>Is VIP?</th>
             <th>Customer</th>
             <th>Date + Time</th>
             <th>Technician</th>
@@ -53,7 +58,6 @@ export const ServiceHistory = () => {
           {filteredAppointments.map((appt) => (
             <tr key={appt.id}>
               <td>{appt.vin}</td>
-              <td>{appt.is_vip ? "Yes" : "No"}</td>
               <td>{appt.customer}</td>
               <td>{appt.date_time}</td>
               <td>{appt.technician.first_name}</td>

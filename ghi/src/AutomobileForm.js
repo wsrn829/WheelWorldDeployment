@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import AuthContext from './AuthContext';
 
 export const AutomobileForm = () => {
   const [color, setColor] = useState("");
@@ -6,6 +7,8 @@ export const AutomobileForm = () => {
   const [vin, setVin] = useState("");
   const [model, setModel] = useState("");
   const [models, setModels] = useState([]);
+  const { isLoggedIn } = useContext(AuthContext);
+
 
   const baseUrl = 'http://localhost:8000/api/';
 
@@ -60,6 +63,10 @@ export const AutomobileForm = () => {
     setModel("");
     setVin("");
   };
+
+  if (!isLoggedIn) {
+    return <h3 style={{ textAlign: 'center', marginTop: '50px', color: 'white' }}>*You must be logged in to view this form.*</h3>;
+  }
 
   return (
     <>

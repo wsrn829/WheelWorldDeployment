@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import AuthContext from './AuthContext';
 
 function SalespeopleList() {
     const [salespeople, setSalespeople] = useState([]);
+    const { isLoggedIn } = useContext(AuthContext);
+
     const baseUrl = 'http://localhost:8000/api/';
 
     useEffect(() => {
@@ -14,6 +17,10 @@ function SalespeopleList() {
             const data = await response.json();
             setSalespeople(data);
         }
+    }
+
+    if (!isLoggedIn) {
+        return <h3 style={{ textAlign: 'center', marginTop: '50px', color: 'white' }}>*You must be logged in to view this form.*</h3>;
     }
 
     return (

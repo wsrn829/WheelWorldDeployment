@@ -1,8 +1,10 @@
-import React, { useState, useEffect }  from "react";
+import React, { useState, useEffect, useContext }  from "react";
+import AuthContext from './AuthContext';
 
 const baseUrl = 'http://localhost:8000/api/';
 
 function CustomersList() {
+    const { isLoggedIn } = useContext(AuthContext);
     console.log('CustomersList rendered');
     const [customers, setCustomers] = useState([]);
 
@@ -26,6 +28,10 @@ function CustomersList() {
 
         loadCustomers();
     }, [baseUrl]);
+
+    if (!isLoggedIn) {
+        return <h3 style={{ textAlign: 'center', marginTop: '50px', color: 'white' }}>*You must be logged in to view this form.*</h3>;
+      }
 
     return (
         <div className="container">

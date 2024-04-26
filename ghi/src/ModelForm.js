@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import AuthContext from './AuthContext';
 
 export default function ModelForm() {
   const [name, setName] = useState("");
   const [pictureUrl, setPictureUrl] = useState("");
   const [manufacturerId, setManufacturerId] = useState("");
   const [manufacturers, setManufacturers] = useState([]);
+  const { isLoggedIn } = useContext(AuthContext);
 
   const handleName = ({ target: { value } }) => setName(value);
   const handlePictureUrl = ({ target: { value } }) => setPictureUrl(value);
@@ -50,6 +52,10 @@ export default function ModelForm() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  if (!isLoggedIn) {
+    return <h3 style={{ textAlign: 'center', marginTop: '50px', color: 'white' }}>*You must be logged in to view this form.*</h3>;
+  }
 
   return (
     <div>

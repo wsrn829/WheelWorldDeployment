@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import AuthContext from './AuthContext';
 
 const baseUrl = 'http://localhost:8000/api/';
 
@@ -14,6 +15,8 @@ function SalesForm() {
     sales: [],
     formSubmitted: false,
   });
+  const { isLoggedIn } = useContext(AuthContext);
+
 
   const handleChange = (event) => {
     setState({
@@ -98,6 +101,9 @@ function SalesForm() {
     formClasses = 'd-none';
   }
 
+  if (!isLoggedIn) {
+    return <h3 style={{ textAlign: 'center', marginTop: '50px', color: 'white' }}>*You must be logged in to view this form.*</h3>;
+  }
 
   return (
     <div className="container">

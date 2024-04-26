@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AuthContext from './AuthContext';
 
 export default function ManufacturerForm() {
+  const { isLoggedIn } = useContext(AuthContext);
   const [name, setName] = useState("");
 
   const handleName = ({ target: { value } }) => {
@@ -29,6 +31,10 @@ export default function ManufacturerForm() {
       setName("");
     }
   };
+
+  if (!isLoggedIn) {
+    return <h3 style={{ textAlign: 'center', marginTop: '50px', color: 'white' }}>*You must be logged in to view this form.*</h3>;
+  }
 
   return (
     <div>

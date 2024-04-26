@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AuthContext from './AuthContext';
 
 export const TechnicianForm = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [employeeId, setEmployeeId] = useState("");
+  const { isLoggedIn } = useContext(AuthContext);
+
 
   const handleChange = ({ target: { name, value } }) => {
     if (name === "first_name") {
@@ -50,6 +53,10 @@ export const TechnicianForm = () => {
       alert(error.message);
     }
   };
+
+  if (!isLoggedIn) {
+    return <h3 style={{ textAlign: 'center', marginTop: '50px', color: 'white' }}>*You must be logged in to view this form.*</h3>;
+  }
 
   return (
     <div className="my-5 container">

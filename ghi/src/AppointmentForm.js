@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import AuthContext from './AuthContext';
 
 export const AppointmentForm = () => {
   const [vin, setVin] = useState("");
@@ -7,6 +8,8 @@ export const AppointmentForm = () => {
   const [technician, setTechnician] = useState("");
   const [reason, setReason] = useState("");
   const [technicians, setTechnicians] = useState([]);
+  const { isLoggedIn } = useContext(AuthContext);
+
 
   const baseUrl = 'http://localhost:8000/api/';
 
@@ -88,6 +91,10 @@ export const AppointmentForm = () => {
   useEffect(() => {
     fetchTechnicians();
   }, []);
+
+  if (!isLoggedIn) {
+    return <h3 style={{ textAlign: 'center', marginTop: '50px', color: 'white' }}>*You must be logged in to view this form.*</h3>;
+  }
 
   return (
     <>

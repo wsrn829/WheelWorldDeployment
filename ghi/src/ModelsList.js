@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import AuthContext from './AuthContext';
 
 export const ModelList = () => {
   const [models, setModels] = useState([]);
+  const { isLoggedIn } = useContext(AuthContext);
 
   const baseUrl = 'http://localhost:8000/api/';
 
@@ -25,6 +27,10 @@ export const ModelList = () => {
   useEffect(() => {
     getModels();
   }, []);
+
+  if (!isLoggedIn) {
+    return <h3 style={{ textAlign: 'center', marginTop: '50px', color: 'white' }}>*You must be logged in to view this form.*</h3>;
+  }
 
   return (
     <>
