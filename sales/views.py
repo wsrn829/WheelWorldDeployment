@@ -88,6 +88,8 @@ def api_list_sale(request):
             )
 
         sale = Sale.objects.create(**content)
+        automobile.sold = True
+        automobile.save()
         return JsonResponse(model_to_dict(sale), safe=False)
 
 @require_http_methods(['GET', 'DELETE'])

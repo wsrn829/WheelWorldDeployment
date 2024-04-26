@@ -23,6 +23,7 @@ import AppointmentsList from "./AppointmentsList";
 import ServiceHistory from "./ServiceHistory";
 import AutomobilesList from "./AutomobilesList";
 import AutomobileForm from "./AutomobileForm";
+import './App.css';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

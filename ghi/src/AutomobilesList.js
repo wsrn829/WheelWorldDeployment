@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 export const AutomobileList = () => {
   const [automobiles, setAutomobiles] = useState([]);
+  const [showSold, setShowSold] = useState(true);
 
   const baseUrl = 'http://localhost:8000/api/';
 
@@ -11,7 +12,6 @@ export const AutomobileList = () => {
 
     if (response.ok) {
       const automobileData = await response.json();
-      console.log(automobileData.autos);
       setAutomobiles(automobileData.autos);
     }
   };
@@ -20,9 +20,18 @@ export const AutomobileList = () => {
     getAutomobiles();
   }, []);
 
+  const toggleShowSold = () => {
+    setShowSold(!showSold);
+  };
+
+  const displayedAutomobiles = showSold ? automobiles : automobiles.filter(auto => !auto.sold);
+
   return (
     <>
       <h1>Automobiles</h1>
+      <button onClick={toggleShowSold}>
+        {showSold ? "Hide Sold Automobiles" : "Show All Automobiles"}
+      </button>
       <table className="table table-striped">
         <thead>
           <tr>
@@ -35,7 +44,7 @@ export const AutomobileList = () => {
           </tr>
         </thead>
         <tbody>
-          {automobiles.map(({ id, vin, color, year, model_name, manufacturer_name, sold }) => (
+          {displayedAutomobiles.map(({ id, vin, color, year, model_name, manufacturer_name, sold }) => (
             <tr key={id}>
               <td>{vin}</td>
               <td>{color}</td>
