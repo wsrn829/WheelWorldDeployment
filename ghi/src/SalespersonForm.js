@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AuthContext from './AuthContext';
 
 function SalespersonForm() {
+  const { isLoggedIn } = useContext(AuthContext);
+
   const [formFields, setFormFields] = useState({
     firstName: "",
     lastName: "",
@@ -57,6 +60,10 @@ function SalespersonForm() {
       getSalespeople();
     }
   };
+
+  if (!isLoggedIn) {
+    return <h3 style={{ textAlign: 'center', marginTop: '50px', color: 'white' }}>*You must be logged in to view this form.*</h3>;
+  }
 
   return (
     <div className="container">
