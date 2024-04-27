@@ -36,6 +36,31 @@
 
 ## What’s contained in each file you created.
 
+- Login
+- Logout
+- Register
+- AuthContxt
+- HomePage
+- NavBar
+- Add a manufacturer
+- Manufacturer List
+- Add a Vehicle Model
+- Model List
+- Add an Automobile
+- Automobile List
+- Add a Technician
+- Technician List
+- Create a Service Appointment
+- Service Appointment List
+- Service History
+- Add a Salesperson
+- Salespeople List
+- Add a Customer
+- Customer List
+- Create a Sale
+- Sales List
+- Salesperson History
+
 ## How to run your application.
 - `git clone <repository_url>`
 - `cd <project_directory>`
