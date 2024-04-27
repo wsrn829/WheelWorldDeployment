@@ -48,6 +48,9 @@ As required, I designed and implemented a dynamic website of my own, using Djang
      - Models.py
      - Views.py
      - Urls.py
+   - WheelWorld
+     - settings.py
+     - urls.py
    - ghi (Frontend) 
       - App.css
       - App.js
@@ -79,6 +82,9 @@ As required, I designed and implemented a dynamic website of my own, using Djang
       - ServiceHistory.js
       - TechnicianForm.js
       - TechnicianList.js
+      - package.json
+   - manage.py
+   - requirements.txt
 
 ## How to run your application.
    1. Clone the repository: `git clone <repository_url>`
