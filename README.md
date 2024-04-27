@@ -4,34 +4,34 @@ WheelWorld is a full-stack car dealership management web application built with 
 
 ## Distinctiveness and Complexity
 
-1. Distinctiveness:
+1. **Distinctiveness:**
    - My final project, WheelWorld, is not only sufficiently distinct from the other projects in this course (being neither a social network nor an e-commerce app) but also more complex than those (see detailed below).
    - It also presents me with a valuable opportunity to rewrite every single line of code of my ongoing personal project, substantially improving its design, implementation, functionality, and appearance.
-2. Complexity:
-As required, I designed and implemented a dynamic website of my own, using Django for the backend, SQLite for the database, and JavaScript for the frontend.
-   - Design:
+2. **Complexity:**
+   - As required, I designed and implemented a dynamic website of my own, using Django for the backend, SQLite for the database, and JavaScript for the frontend.
+   - **Design:**
      - The project (wheelworld) comprises four apps: accounts, inventory, sales, and services.
      - The Django backend includes nine models, which are interconnected with foreign keys when necessary, making the database schema more complex.
      - The React frontend includes 26 component js files. The application uses React Router for navigation and Context API for state management across components.
-   - Frontend:
+   - **Frontend:**
      - A Single-Page Application (SPA) using React with its functional components and React hooks (useState, useEffect, useContext, useCallback) for a smoother user experience.
      - Mobile responsive design using Bootstrap and custom CSS is implemented for every single page.
      - The application features a responsive Navbar that displays all functionalities, a digital clock, a dynamic greeting message, and login/logout/register buttons. 
-   - Backend:
+   - **Backend:**
      - Used Django ORM with models and migrations.
      - Used Django REST API, which returns JSON instead of "traditional" HTML template rendering as in all other projects in this course.
      - I utilized Django's model_to_dict function to convert instances of model classes into dictionaries for JSON serialization.
-   - Authentication:
+   - **Authentication:**
        - For backend authentication, I used Django's REST API and built-in login, logout, and register functions.
        - Frontend Auth: React custom-built authentication system.
        - Global state management: React useContext hook.
-   - Styling:
+   - **Styling:**
      - Bootstrap classes for a consistent look across the website.
      - Mobile responsive design is implemented for every single page.
 
 ## What’s contained in each file you created.
 
-- WheelWorld (Django Project) - A comprehensive car dealership management App.
+- WheelWorld (Django Project) -- A comprehensive car dealership management App.
    - Accounts App (API)
      - Models.py
      - Views.py
