@@ -79,15 +79,15 @@
       - TechnicianList.js
 
 ## How to run your application.
-- `git clone <repository_url>`
-- `cd <project_directory>`
-- `pip install -r requirements.txt`
-- `python manage.py migrate`
-- `python manage.py runserver`
-- Open a new terminal window or tab and navigate into the frontend directory (where your React application is located):
-- `cd ghi`
-- `npm install`
-- `npm start`
+   - `git clone <repository_url>`
+   - `cd <project_directory>`
+   - `pip install -r requirements.txt`
+   - `python manage.py migrate`
+   - `python manage.py runserver`
+   - Open a new terminal window or tab and navigate into the frontend directory (where your React application is located):
+   - `cd ghi`
+   - `npm install`
+   - `npm start`
 
 - Now, your Django backend should be running at http://localhost:8000/ and your React frontend should be running at http://localhost:3000/.
 
