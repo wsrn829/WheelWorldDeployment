@@ -36,30 +36,54 @@
 
 ## What’s contained in each file you created.
 
-- Login
-- Logout
-- Register
-- AuthContxt
-- HomePage
-- NavBar
-- Add a manufacturer
-- Manufacturer List
-- Add a Vehicle Model
-- Model List
-- Add an Automobile
-- Automobile List
-- Add a Technician
-- Technician List
-- Create a Service Appointment
-- Service Appointment List
-- Service History
-- Add a Salesperson
-- Salespeople List
-- Add a Customer
-- Customer List
-- Create a Sale
-- Sales List
-- Salesperson History
+- WheelWorld (Django Project) - A comprehensive car dealership management App.
+   - Accounts App (API)
+     - Models.py
+     - Views.py
+     - Urls.py
+   - Inventory App (API)
+     - Models.py
+     - Views.py
+     - Urls.py
+   - Service App (API)
+     - Models.py
+     - Views.py
+     - Urls.py
+   - Sales App (API)
+     - Models.py
+     - Views.py
+     - Urls.py
+   - ghi (Frontend) 
+      - App.css
+      - App.js
+      - AppointmentForm.js
+      - AppointmentList.js
+      - AuthContext.js
+      - AutomobileForm.js
+      - AutomobileList.js
+      - CustomerForm.js
+      - CustomerList.js
+      - HomePage.css
+      - HomePage.js
+      - index.css
+      - index.js
+      - Login.js
+      - Logout.js
+      - ManufacturerForm.js
+      - ManufacturerList.js
+      - ModelForm.js
+      - ModelList.js
+      - Navbar.css
+      - Navbar.js
+      - Register.js
+      - SaleForm.js
+      - SalesHistory.js
+      - SalesList.js
+      - SalespeopleList.js
+      - SalespersonForm.js
+      - ServiceHistory.js
+      - TechnicianForm.js
+      - TechnicianList.js
 
 ## How to run your application.
 - `git clone <repository_url>`
@@ -82,6 +106,6 @@
    - I converted the previous microservices architecture into a monolithic architecture to reduce costs after deployment.
    - I turned the previous three databases into one also to reduce cost (after deployment).
    - I replaced polling between microservices with HTTP requests to realize efficient and immediate data synchronization between apps and to reduce cost (after deployment).
-   - I added a whole new authentication system (both frontend Auth and backend Auth) from scratch using Django REST API, React, and React hooks (e.g., useContext).
+   - I added a whole new authentication system (both frontend Auth and backend Auth) using Django REST API, React, and React hooks (e.g., useContext).
    - I added mobile responsiveness to every single React page.
-   - Rewrote and optimized every single line of code.
+   - More importantly, I rewrote and optimized every single line of code.
