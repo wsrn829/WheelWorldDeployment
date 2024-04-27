@@ -11,7 +11,7 @@ WheelWorld is a full-stack car dealership management web application built with 
 As required, I designed and implemented a dynamic website of my own, using Django for the backend, SQLite for the database, and JavaScript for the frontend.
    - Design:
      - The project (wheelworld) comprises four apps: accounts, inventory, sales, and services.
-     - The Django backend includes nine models, which are interconnected with foreign keys and many-to-many relationships when necessary, making the database schema more complex.
+     - The Django backend includes nine models, which are interconnected with foreign keys when necessary, making the database schema more complex.
      - The React frontend includes 26 component js files. The application uses React Router for navigation and Context API for state management across components.
    - Frontend:
      - A Single-Page Application (SPA) using React with its functional components and React hooks (useState, useEffect, useContext, useCallback) for a smoother user experience.
