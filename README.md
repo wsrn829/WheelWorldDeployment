@@ -100,5 +100,7 @@
    - I turned the previous three databases into one also to reduce cost (after deployment).
    - I replaced polling between microservices with HTTP requests to realize efficient and immediate data synchronization between apps and to reduce cost (after deployment).
    - I added a whole new authentication system (both frontend Auth and backend Auth) using Django REST API, React, and React hooks (e.g., useContext).
+   - I designed and implemented a responsive Navbar with dropdown lists of all functionalities, a digital clock, and login/logout/register buttons.
+   - I designed and implemented a HomePage with a visually appealing style.
    - I added mobile responsiveness to every single React page.
-   - More importantly, I rewrote and optimized every single line of code.
+   - More importantly, I rewrote and optimized every single line of code to make it a whole new project.
