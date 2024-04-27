@@ -1,12 +1,5 @@
 # WheelWorld
 
-- Under its own header within the README called Distinctiveness and Complexity: Why you believe your project satisfies the distinctiveness and complexity requirements, mentioned above.
-- Your web application must be sufficiently distinct from the other projects in this course (and, in addition, may not be based on the old CS50W Pizza project), and more complex than those. 
-- A project that appears to be a social network is a priori deemed by the staff to be indistinct from Project 4, and should not be submitted; it will be rejected.
-- A project that appears to be an e-commerce site is strongly suspected to be indistinct from Project 2, and your README.md file should be very clear as to why it’s not. Failing that, it should not be submitted; it will be rejected.
-- Your web application must utilize Django (including at least one model) on the back-end and JavaScript on the front-end.
-- Your web application must be mobile-responsive."
-
 ## Distinctiveness and Complexity
 
 1. Distinctiveness:
