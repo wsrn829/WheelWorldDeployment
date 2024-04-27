@@ -1,19 +1,21 @@
 # WheelWorld
 
+WheelWorld is a full-stack car dealership management web application built with Django on the backend, React on the frontend, and is fully mobile-responsive. The complexity of WheelWorld lies in its various features and the technologies used, as detailed below.
+
 ## Distinctiveness and Complexity
 
 1. Distinctiveness:
    - My final project, WheelWorld, is not only sufficiently distinct from the other projects in this course (being neither a social network nor an e-commerce app) but also more complex than those (see detailed below).
-   - It also presents me with a valuable opportunity to rewrite every single line of code of my ongoing personal project, substantially improving its design, implementation, and appearance.
+   - It also presents me with a valuable opportunity to rewrite every single line of code of my ongoing personal project, substantially improving its design, implementation, functionality, and appearance.
 2. Complexity:
-   As required, I designed and implemented a dynamic website of my own, using Django for the backend, SQLite for the database, and JavaScript for the frontend.
+As required, I designed and implemented a dynamic website of my own, using Django for the backend, SQLite for the database, and JavaScript for the frontend.
    - Design:
      - The project (wheelworld) comprises four apps: accounts, inventory, sales, and services.
-     - Nine models with Foreign Keys to connect database tables when necessary.
-     - 26 React component .js files.
+     - The Django backend includes nine models, which are interconnected with foreign keys and many-to-many relationships when necessary, making the database schema more complex.
+     - The React frontend includes 26 component js files. The application uses React Router for navigation and Context API for state management across components.
    - Frontend:
      - A Single-Page Application (SPA) using React with its functional components and React hooks (useState, useEffect, useContext, useCallback) for a smoother user experience.
-     - Mobile responsive design using Bootstrap and custom CSS classes is implemented for every single page.
+     - Mobile responsive design using Bootstrap and custom CSS is implemented for every single page.
      - The application features a responsive Navbar that displays all functionalities, a digital clock, a dynamic greeting message, and login/logout/register buttons. 
    - Backend:
      - Used Django ORM with models and migrations.
@@ -21,7 +23,7 @@
      - I utilized Django's model_to_dict function to convert instances of model classes into dictionaries for JSON serialization.
    - Authentication:
        - For backend authentication, I used Django's REST API and built-in login, logout, and register functions.
-       - Frontend Auth: React custom components.
+       - Frontend Auth: React custom-built authentication system.
        - Global state management: React useContext hook.
    - Styling:
      - Bootstrap classes for a consistent look across the website.
@@ -79,15 +81,14 @@
       - TechnicianList.js
 
 ## How to run your application.
-   - `git clone <repository_url>`
-   - `cd <project_directory>`
-   - `pip install -r requirements.txt`
-   - `python manage.py migrate`
-   - `python manage.py runserver`
-   - Open a new terminal window or tab and navigate into the frontend directory (where your React application is located):
-   - `cd ghi`
-   - `npm install`
-   - `npm start`
+   1. Clone the repository: `git clone <repository_url>`
+   2. Navigate to the project directory with `cd <project_directory>`
+   3. Install the Python dependencies with `pip install -r requirements.txt`
+   4. Apply the Django migrations with `python manage.py migrate`
+   5. Start the Django server with `python manage.py runserver`
+   6. In a new terminal, navigate to the frontend directory: `cd ghi`
+   7. Install the Node.js dependencies with `npm install`
+   8. Start the React development server with `npm start`
 
 - Now, your Django backend should be running at http://localhost:8000/ and your React frontend should be running at http://localhost:3000/.
 
