@@ -11,7 +11,7 @@ cffi==1.16.0
 charset-normalizer==3.3.2
 click==8.1.7
 cryptography==42.0.5
-Django==4.2.11
+Django
 ecdsa==0.18.0
 exceptiongroup==1.2.0
 fastapi==0.92.0
@@ -57,5 +57,4 @@ zipp==3.18.1
 gunicorn
 django-cors-headers
 psycopg2-binary
-Django>=3.2,<4.0
 djangorestframework
