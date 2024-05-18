@@ -1,1 +1,1 @@
-web: gunicorn wheelworld_project.wsgi:application
+web: gunicorn wheelworld.wsgi:application
