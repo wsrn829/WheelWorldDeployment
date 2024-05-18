@@ -134,6 +134,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
