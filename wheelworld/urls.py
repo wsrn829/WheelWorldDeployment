@@ -22,7 +22,7 @@ def api_root(request):
     """
     A simple view for the root URL ("/").
     """
-    return HttpResponse({"message": "Welcome to the API root!"})
+    return HttpResponse("message": "Welcome to the API root!")
 
 urlpatterns = [
     path('', api_root, name='api_root'),
