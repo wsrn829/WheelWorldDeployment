@@ -55,3 +55,5 @@ uvicorn==0.28.0
 yoyo-migrations==8.2.0
 zipp==3.18.1
 gunicorn
+django-cors-headers
+psycopg2-binary
