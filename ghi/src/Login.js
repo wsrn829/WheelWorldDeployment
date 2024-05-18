@@ -12,9 +12,13 @@ function Login() {
   const handleLoginClick = async (event) => {
     event.preventDefault(); // Prevent form from causing a page refresh
 
+    const baseUrl = process.env.NODE_ENV === 'production'
+    ? `${process.env.REACT_APP_SERVER_URL}/api/`
+    : 'http://localhost:8000/api/';
+
     try {
       // Perform login operation here (e.g., API call)
-      const response = await fetch('http://localhost:8000/api/login', {
+      const response = await fetch(`${baseUrl}login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

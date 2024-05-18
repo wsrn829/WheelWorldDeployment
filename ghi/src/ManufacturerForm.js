@@ -9,7 +9,9 @@ export default function ManufacturerForm() {
     setName(value);
   };
 
-  const baseUrl = 'http://localhost:8000/api/';
+  const baseUrl = process.env.NODE_ENV === 'production'
+  ? `${process.env.REACT_APP_SERVER_URL}/api/`
+  : 'http://localhost:8000/api/';
 
   const manufacturerURL = `${baseUrl}manufacturers/`;
 

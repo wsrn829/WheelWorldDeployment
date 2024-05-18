@@ -40,12 +40,13 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
     "http://localhost:3001",
+    "https://wheel-world.netlify.app",
 ]
 
 ALLOWED_HOSTS = [
     "localhost",
-    "http:localhost:3000",
-    "http:localhost:3001",
+    "localhost:3000",
+    "localhost:3001",
     "wheelworld-d9ef0668a372.herokuapp.com",
 ]
 

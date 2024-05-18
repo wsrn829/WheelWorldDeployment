@@ -18,9 +18,13 @@ function Register({ onRegister }) {
       return;
     }
 
+    const baseUrl = process.env.NODE_ENV === 'production'
+    ? `${process.env.REACT_APP_SERVER_URL}/api/`
+    : 'http://localhost:8000/api/';
+
     try {
       // Perform registration operation here (e.g., API call)
-      const response = await fetch('http://localhost:8000/api/register', {
+      const response = await fetch(`${baseUrl}register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
