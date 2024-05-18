@@ -34,12 +34,12 @@ CORS_ORIGIN_WHITELIST = [
     "http://localhost:3001",
 ]
 
-# ALLOWED_HOSTS = [
-#     "localhost",
-#     "http:localhost:3000",
-#     "http:localhost:3001",
-#     "*",
-# ]
+ALLOWED_HOSTS = [
+    "localhost",
+    "http:localhost:3000",
+    "http:localhost:3001",
+    "wheelworld-d9ef0668a372.herokuapp.com",
+]
 
 
 # Application definition
