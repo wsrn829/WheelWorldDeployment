@@ -33,9 +33,14 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+
+CORS_ALLOWED_ORIGINS = [
+    "https://wheel-world.netlify.app",
+]
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
@@ -45,8 +50,6 @@ CORS_ORIGIN_WHITELIST = [
 
 ALLOWED_HOSTS = [
     "localhost",
-    "localhost:3000",
-    "localhost:3001",
     "wheelworld-d9ef0668a372.herokuapp.com",
 ]
 
