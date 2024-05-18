@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.http import JsonResponse
+from django.http import HttpResponse
 
 def api_root(request):
     """
     A simple view for the root URL ("/").
     """
-    return JsonResponse({"message": "Welcome to the API root!"})
+    return HttpResponse({"message": "Welcome to the API root!"})
 
 urlpatterns = [
     path('', api_root, name='api_root'),
