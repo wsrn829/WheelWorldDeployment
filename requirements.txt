@@ -57,4 +57,5 @@ zipp==3.18.1
 gunicorn
 django-cors-headers
 psycopg2-binary
-djangorestframework
+Django>=3.2,<4.0
+djangorestframework>=3.12,<4.0
