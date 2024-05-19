@@ -6,7 +6,9 @@ export const AutomobileList = () => {
   const [showSold, setShowSold] = useState(true);
   const { isLoggedIn } = useContext(AuthContext);
 
-  const baseUrl = 'http://localhost:8000/api/';
+  const baseUrl = process.env.NODE_ENV === 'production'
+  ? `${process.env.REACT_APP_SERVER_URL}/api/`
+  : 'http://localhost:8000/api/';
 
   const getAutomobiles = async () => {
     const autoUrl = `${baseUrl}automobiles/`;

@@ -21,7 +21,9 @@ export default function SalesHistory() {
     salesPerson: salesPerson,
   };
 
-  const baseUrl = 'http://localhost:8000/api/';
+  const baseUrl = process.env.NODE_ENV === 'production'
+  ? `${process.env.REACT_APP_SERVER_URL}/api/`
+  : 'http://localhost:8000/api/';
 
   async function LoadSales() {
     const response = await fetch(`${baseUrl}sale/`);

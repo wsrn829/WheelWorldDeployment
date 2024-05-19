@@ -5,7 +5,9 @@ export default function ManufacturerList() {
   const [manufacturer, setManufacturer] = useState([]);
   const { isLoggedIn } = useContext(AuthContext);
 
-  const baseUrl = 'http://localhost:8000/api/';
+  const baseUrl = process.env.NODE_ENV === 'production'
+  ? `${process.env.REACT_APP_SERVER_URL}/api/`
+  : 'http://localhost:8000/api/';
 
   async function loadManufacturer() {
     const response = await fetch(`${baseUrl}manufacturers/`);

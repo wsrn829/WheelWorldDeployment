@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useCallback, useContext } from "react";
 import AuthContext from './AuthContext';
 
-const baseUrl = 'http://localhost:8000/api/';
+const baseUrl = process.env.NODE_ENV === 'production'
+? `${process.env.REACT_APP_SERVER_URL}/api/`
+: 'http://localhost:8000/api/';
 
 function SalesList() {
     const [sales, setSales] = useState([]);

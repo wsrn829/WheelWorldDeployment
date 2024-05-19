@@ -6,8 +6,9 @@ export const AppointmentList = () => {
   const [appointments, setAppointments] = useState([]);
   const { isLoggedIn } = useContext(AuthContext);
 
-
-  const baseUrl = 'http://localhost:8000/api/';
+  const baseUrl = process.env.NODE_ENV === 'production'
+  ? `${process.env.REACT_APP_SERVER_URL}/api/`
+  : 'http://localhost:8000/api/';
 
   useEffect(() => {
     async function getAppointments() {
