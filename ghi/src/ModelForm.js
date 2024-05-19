@@ -3,13 +3,13 @@ import AuthContext from './AuthContext';
 
 export default function ModelForm() {
   const [name, setName] = useState("");
-  const [pictureUrl, setPictureUrl] = useState("");
+  // const [pictureUrl, setPictureUrl] = useState("");
   const [manufacturerId, setManufacturerId] = useState("");
   const [manufacturers, setManufacturers] = useState([]);
   const { isLoggedIn } = useContext(AuthContext);
 
   const handleName = ({ target: { value } }) => setName(value);
-  const handlePictureUrl = ({ target: { value } }) => setPictureUrl(value);
+  // const handlePictureUrl = ({ target: { value } }) => setPictureUrl(value);
   const handleManufacturerId = ({ target: { value } }) => setManufacturerId(value);
 
   const baseUrl = process.env.NODE_ENV === 'production'
@@ -21,7 +21,7 @@ export default function ModelForm() {
 
     const data = {
       name,
-      picture_url: pictureUrl,
+      // picture_url: pictureUrl,
       manufacturer_id: manufacturerId,
     }
 
@@ -37,7 +37,7 @@ export default function ModelForm() {
     const response = await fetch(modelsURL, fetchConfig);
     if (response.ok) {
       setName("");
-      setPictureUrl("");
+      // setPictureUrl("");
       setManufacturerId("");
     }
   };
@@ -73,11 +73,11 @@ export default function ModelForm() {
               />
               <label htmlFor="model_name">Model Name</label>
             </div>
-            <div className="form-floating mb-3">
+            {/* <div className="form-floating mb-3">
               <input
                 value={pictureUrl} onChange={handlePictureUrl} placeholder="picture_url" required type="text" name="picture_url" id="picture_url" className="form-control"/>
               <label htmlFor="picture">Picture URL</label>
-            </div>
+            </div> */}
             <div className="form-floating mb-3">
               <select
                 value={manufacturerId} onChange={handleManufacturerId} placeholder="manufacturer_id" required type="text" name="manufacturer_id" id="manufacturer_id" className="form-select">
