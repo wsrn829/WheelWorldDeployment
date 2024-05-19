@@ -42,7 +42,7 @@ export const ModelList = () => {
           <tr>
             <th>Name</th>
             <th>Manufacturer</th>
-            <th>Picture</th>
+            {/* <th>Picture</th> */}
           </tr>
         </thead>
         <tbody>
@@ -50,9 +50,9 @@ export const ModelList = () => {
             <tr key={id}>
               <td>{name}</td>
               <td>{manufacturer_name}</td>
-              <td>
+              {/* <td>
                 <img src={picture_url} alt="Car" />
-              </td>
+              </td> */}
             </tr>
           ))}
         </tbody>
