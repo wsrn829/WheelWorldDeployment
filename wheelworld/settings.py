@@ -55,6 +55,7 @@ ALLOWED_HOSTS = [
 
 CORS_ALLOW_HEADERS = [
     'Authentication',
+    'content-type',
 ]
 
 # Application definition
