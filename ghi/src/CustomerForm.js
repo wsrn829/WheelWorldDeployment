@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import AuthContext from './AuthContext';
 
 export default function CustomersForm() {
-    const { isLoggedIn } = useContext(AuthContext);
+    const { isLoggedIn, token } = useContext(AuthContext);
 
     const [customer, setCustomer] = useState({
       first_name: '',
@@ -31,6 +31,7 @@ export default function CustomersForm() {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
+                'Authorization': `Token ${token}`
             },
         }
         const response = await fetch(`${baseUrl}customer/`, fetchConfig);

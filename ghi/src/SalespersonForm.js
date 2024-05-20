@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import AuthContext from './AuthContext';
 
 function SalespersonForm() {
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, token } = useContext(AuthContext);
 
   const [formFields, setFormFields] = useState({
     firstName: "",
@@ -36,6 +36,7 @@ function SalespersonForm() {
       mode: 'cors',
       headers: {
         "Content-Type": "application/json",
+        'Authorization': `Token ${token}`
       },
       body: JSON.stringify(data),
     }

@@ -7,7 +7,7 @@ export const AutomobileForm = () => {
   const [vin, setVin] = useState("");
   const [model, setModel] = useState("");
   const [models, setModels] = useState([]);
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, token } = useContext(AuthContext);
 
 
   const baseUrl = process.env.NODE_ENV === 'production'
@@ -45,6 +45,7 @@ export const AutomobileForm = () => {
       mode: 'cors',
       headers: {
         "Content-type": "application/json",
+        'Authorization': `Token ${token}`
       },
       body: JSON.stringify(newAutomobileData),
     };

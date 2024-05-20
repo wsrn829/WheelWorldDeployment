@@ -6,7 +6,7 @@ export default function ModelForm() {
   // const [pictureUrl, setPictureUrl] = useState("");
   const [manufacturerId, setManufacturerId] = useState("");
   const [manufacturers, setManufacturers] = useState([]);
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, token } = useContext(AuthContext);
 
   const handleName = ({ target: { value } }) => setName(value);
   // const handlePictureUrl = ({ target: { value } }) => setPictureUrl(value);
@@ -31,6 +31,7 @@ export default function ModelForm() {
       mode: 'cors',
       headers: {
         "Content-Type": "application/json",
+        'Authorization': `Token ${token}`
       },
       body: JSON.stringify(data),
     };

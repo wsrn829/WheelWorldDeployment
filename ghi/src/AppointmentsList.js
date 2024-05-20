@@ -4,7 +4,7 @@ import AuthContext from './AuthContext';
 
 export const AppointmentList = () => {
   const [appointments, setAppointments] = useState([]);
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, token } = useContext(AuthContext);
 
   const baseUrl = process.env.NODE_ENV === 'production'
   ? `${process.env.REACT_APP_SERVER_URL}/api/`
@@ -30,7 +30,8 @@ export const AppointmentList = () => {
     const fetchConfig = {
       method: "PUT",
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Token ${token}`
       },
     };
     const response = await fetch(cancelUrl, fetchConfig);
@@ -47,7 +48,8 @@ export const AppointmentList = () => {
     const fetchConfig = {
       method: "PUT",
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Token ${token}`
       },
     };
     const response = await fetch(finishUrl, fetchConfig);

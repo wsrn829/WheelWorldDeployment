@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AuthContext from './AuthContext';
+import { AuthProvider } from './AuthContext';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
 import Navbar from "./Navbar";
@@ -26,21 +26,8 @@ import AutomobileForm from "./AutomobileForm";
 import './App.css';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState();
-
-  const handleLogin = (username) => {
-    setIsLoggedIn(true);
-    setUsername(username);
-  };
-
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    setUsername('');
-  };
-
   return (
-    <AuthContext.Provider value={{ isLoggedIn, username, setIsLoggedIn, handleLogin, handleLogout }}>
+    <AuthProvider>
     <BrowserRouter>
       <Navbar />
       <div className="container">
@@ -69,7 +56,7 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
-    </AuthContext.Provider>
+    </AuthProvider>
   );
 }
 

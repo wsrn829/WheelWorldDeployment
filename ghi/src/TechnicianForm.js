@@ -5,7 +5,7 @@ export const TechnicianForm = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [employeeId, setEmployeeId] = useState("");
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, token } = useContext(AuthContext);
 
 
   const handleChange = ({ target: { name, value } }) => {
@@ -32,7 +32,10 @@ export const TechnicianForm = () => {
     const fetchConfig = {
       method: "post",
       mode: 'cors',
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        'Authorization': `Token ${token}`
+     },
       body: JSON.stringify({
         first_name: firstName,
         last_name: lastName,

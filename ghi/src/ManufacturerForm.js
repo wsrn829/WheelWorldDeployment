@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import AuthContext from './AuthContext';
 
 export default function ManufacturerForm() {
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, token } = useContext(AuthContext);
   const [name, setName] = useState("");
 
   const handleName = ({ target: { value } }) => {
@@ -24,6 +24,7 @@ export default function ManufacturerForm() {
       headers: {
         "Content-Type": "application/json",
         'Accept': 'application/json',
+        'Authorization': `Token ${token}`
       },
       body: JSON.stringify({ name }),
     };

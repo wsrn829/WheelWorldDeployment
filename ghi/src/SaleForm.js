@@ -17,7 +17,7 @@ function SalesForm() {
     sales: [],
     formSubmitted: false,
   });
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, token } = useContext(AuthContext);
 
 
   const handleChange = (event) => {
@@ -43,6 +43,7 @@ function SalesForm() {
       mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
+        'Authentication': `Token ${token}`
       },
     };
 

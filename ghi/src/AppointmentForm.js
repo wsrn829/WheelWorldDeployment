@@ -8,7 +8,7 @@ export const AppointmentForm = () => {
   const [technician, setTechnician] = useState("");
   const [reason, setReason] = useState("");
   const [technicians, setTechnicians] = useState([]);
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, token } = useContext(AuthContext);
 
 
   const baseUrl = process.env.NODE_ENV === 'production'
@@ -54,6 +54,7 @@ export const AppointmentForm = () => {
       mode: 'cors',
       headers: {
         "Content-type": "application/json",
+        'Authorization': `Token ${token}`
       },
       body: JSON.stringify(newAppointmentData),
     };
