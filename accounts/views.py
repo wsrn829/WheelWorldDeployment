@@ -24,28 +24,27 @@ def logout_view(request):
     logout(request)
     return Response({"message": "Logout successful"}, status=status.HTTP_200_OK)
 
-@api_view(['GET', 'POST'])
+@api_view(['POST'])
 def register(request):
-    print(request.data)
-    if request.method == 'GET':
-        return Response({'message': 'Only POST requests are allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
-    elif request.method == "POST":
-        print(request.data)
-        username = request.data.get("username")
-        email = request.data.get("email")
-        password = request.data.get("password")
-        confirmation = request.data.get("confirmation")
+    print('Request data:', request.data)
 
-        if password != confirmation:
-            return Response({"message": "Passwords must match."}, status=status.HTTP_400_BAD_REQUEST)
+    username = request.data.get("username")
+    email = request.data.get("email")
+    password = request.data.get("password")
+    confirmation = request.data.get("confirmation")
 
-        User = get_user_model()
-        try:
-            user = User.objects.create_user(username, email, password)
-            user.save()
-            token, _ = Token.objects.get_or_create(user=user)
-            print(f'Token for user {user.username}: {token.key}')
-        except IntegrityError:
-            return Response({"message": "Username already taken."}, status=status.HTTP_400_BAD_REQUEST)
+    if password != confirmation:
+        return Response({"message": "Passwords must match."}, status=status.HTTP_400_BAD_REQUEST)
 
+    User = get_user_model()
+    try:
+        user = User.objects.create_user(username, email, password)
+        user.save()
+        token, _ = Token.objects.get_or_create(user=user)
+        print(f'Token for user {user.username}: {token.key}')
         return Response({"token": token.key}, status=status.HTTP_201_CREATED)
+    except IntegrityError:
+        return Response({"message": "Username already taken."}, status=status.HTTP_400_BAD_REQUEST)
+    except Exception as e:
+        print('Error during registration:', e)
+        return Response({"message": "An error occurred during registration."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
