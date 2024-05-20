@@ -53,6 +53,9 @@ ALLOWED_HOSTS = [
     "wheelworld-d9ef0668a372.herokuapp.com",
 ]
 
+CORS_ALLOW_HEADERS = [
+    'Authentication',
+]
 
 # Application definition
 
