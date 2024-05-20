@@ -26,9 +26,11 @@ def logout_view(request):
 
 @api_view(['GET', 'POST'])
 def register(request):
+    console.log(request.data)
     if request.method == 'GET':
         return Response({'message': 'Only POST requests are allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
-    if request.method == "POST":
+    elif request.method == "POST":
+        console.log(request.data)
         username = request.data.get("username")
         email = request.data.get("email")
         password = request.data.get("password")
@@ -42,6 +44,7 @@ def register(request):
             user = User.objects.create_user(username, email, password)
             user.save()
             token, _ = Token.objects.get_or_create(user=user)
+            print(f'Token for user {user.username}: {token.key}')
         except IntegrityError:
             return Response({"message": "Username already taken."}, status=status.HTTP_400_BAD_REQUEST)
 
