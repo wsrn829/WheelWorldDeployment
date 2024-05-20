@@ -26,11 +26,11 @@ def logout_view(request):
 
 @api_view(['GET', 'POST'])
 def register(request):
-    console.log(request.data)
+    print(request.data)
     if request.method == 'GET':
         return Response({'message': 'Only POST requests are allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
     elif request.method == "POST":
-        console.log(request.data)
+        print(request.data)
         username = request.data.get("username")
         email = request.data.get("email")
         password = request.data.get("password")
