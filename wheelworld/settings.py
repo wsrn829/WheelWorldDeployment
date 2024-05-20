@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'sales',
     'inventory',
     'accounts',
+    'rest_framework.authtoken',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
