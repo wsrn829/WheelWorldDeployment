@@ -87,12 +87,15 @@ export const AppointmentList = () => {
         </thead>
         <tbody>
         {appointments.map((appointment) => {
+           if (!appointment) {
+            return null;
+          }
           return (
             <tr key={appointment.id}>
               <td>{appointment.vin}</td>
               <td>{appointment.customer}</td>
               <td>{appointment.date_time}</td>
-              <td>{appointment.technician ? appointment.technician.first_name : 'N/A'}</td>
+              <td>{appointment.technician && appointment.technician.first_name ? appointment.technician.first_name : 'N/A'}</td>
               <td>{appointment.reason}</td>
               <td>
                 {appointment.status === "created" && (
