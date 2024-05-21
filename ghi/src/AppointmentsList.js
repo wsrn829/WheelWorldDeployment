@@ -86,31 +86,37 @@ export const AppointmentList = () => {
           </tr>
         </thead>
         <tbody>
-          {appointments.map((appointment) => {
-            return (
-              <tr key={appointment.id}>
-                <td>{appointment.vin}</td>
-                <td>{appointment.customer}</td>
-                <td>{appointment.date_time}</td>
-                <td>{appointment.technician ? appointment.technician.first_name : 'N/A'}</td>
-                <td>{appointment.reason}</td>
-                <td>
-                  <button
-                    className="btn btn-danger"
-                    onClick={() => handleCancel(appointment.id)}
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    className="btn btn-success"
-                    onClick={() => handleFinish(appointment.id)}
-                  >
-                    Finish
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
+        {appointments.map((appointment) => {
+          return (
+            <tr key={appointment.id}>
+              <td>{appointment.vin}</td>
+              <td>{appointment.customer}</td>
+              <td>{appointment.date_time}</td>
+              <td>{appointment.technician ? appointment.technician.first_name : 'N/A'}</td>
+              <td>{appointment.reason}</td>
+              <td>
+                {appointment.status === "created" && (
+                  <>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => handleCancel(appointment.id)}
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      className="btn btn-success"
+                      onClick={() => handleFinish(appointment.id)}
+                    >
+                      Finish
+                    </button>
+                  </>
+                )}
+                {appointment.status === "completed" && 'Completed'}
+                {appointment.status === "cancelled" && 'Cancelled'}
+              </td>
+            </tr>
+          );
+        })}
         </tbody>
       </table>
     </div>
