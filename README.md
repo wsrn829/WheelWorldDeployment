@@ -2,14 +2,6 @@
 
 WheelWorld is a full-stack car dealership management web application built with Django on the backend, React on the frontend, and is fully mobile-responsive. The complexity of WheelWorld lies in its various features and the technologies used, as detailed below.
 
-Deployed Web Application:
-
-(Frontend)
-https://wheel-world.netlify.app
-
-(Backend)
-https://wheelworld-d9ef0668a372.herokuapp.com
-
 ## Distinctiveness and Complexity
 
 1. **Distinctiveness:**
